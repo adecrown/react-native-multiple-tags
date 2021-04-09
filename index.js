@@ -221,7 +221,9 @@ class MultipleTags extends Component {
   }
 
   setOnChangeValue() {
-    this.props.onChangeItem(this.state.selectedTag);
+    const { onChangeItem } = this.props;
+    const { selectedTag } = this.state;
+    onChangeItem(selectedTag);
   }
 
   ucwords(str) {
@@ -250,7 +252,7 @@ class MultipleTags extends Component {
 
   addTag(item) {
     const { selectedTag, object, searchFilterTag } = this.state;
-    const { objectValueIdentifier } = this.props;
+    const { objectValueIdentifier, clearInputOnOptionSelected } = this.props;
 
     this.arr = searchFilterTag.filter((value) =>
       object
@@ -264,6 +266,15 @@ class MultipleTags extends Component {
       },
       this.setOnChangeValue
     );
+  }
+
+  autoAddNewTag() {
+    const { previousCharacter } = this.state;
+    this.addTag({
+      key: previousCharacter,
+      value: previousCharacter,
+    });
+    this.setState({ previousCharacter: '' });
   }
 
   removeTag(item) {
@@ -458,12 +469,7 @@ class MultipleTags extends Component {
                   underlineColorAndroid="transparent"
                   onChangeText={(value) => this.setTagsBasedOnQuery(value)}
                   placeholder="search..."
-                  onSubmitEditing={() =>
-                    this.addTag({
-                      key: previousCharacter,
-                      value: previousCharacter,
-                    })
-                  }
+                  onSubmitEditing={this.autoAddNewTag}
                 />
                 <Icon style={iconStyle} size={15} name="ios-search-outline" />
               </View>

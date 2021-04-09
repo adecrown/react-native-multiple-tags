@@ -150,6 +150,8 @@ export default WelcomeComponent;
 | tagActiveStyle           | No       | object   | Custom style for active tag.                                                                                                                                                                          |
 | visibleOnOpen            | No       | boolean  |
 
+You can add a tag that is not in the list by hiting enter.
+
 # Todo
 
 - [x] make it more attractive..
