@@ -1,14 +1,15 @@
 {
-  "name": "react-native-multiple-tags",
-  "version": "0.0.4",
+  "name": "@adecrown/react-native-multiple-tags",
+  "version": "0.0.1",
   "description": "Multiple Select using Tags including default Selected Tags",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/caleb-tolu/react-native-multiple-tags.git"
+    "url": "https://github.com/adecrown/react-native-multiple-tags.git"
   },
   "keywords": [
     "react",
@@ -22,16 +23,20 @@
     "radio",
     "button"
   ],
-  "author": "Caleb Tolu",
+  "author": {
+    "name": "adecrown",
+    "url": "http://adecrown.com"
+  },
   "license": "MIT",
   "dependencies": {
     "prop-types": "^15.5.10"
   },
   "devDependencies": {
-    "eslint": "^4.5.0",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.2.1"
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.23.2",
+    "release-it": "^14.6.0"
   }
 }
