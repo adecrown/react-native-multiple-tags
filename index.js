@@ -277,7 +277,8 @@ class MultipleTags extends Component {
   }
 
   autoAddNewTag(previousCharacter) {
-    const { selectedTag } = this.state;
+    const { selectedTag, object } = this.state;
+    const { objectValueIdentifier, objectKeyIdentifier } = this.props;
     if (previousCharacter) {
       const isTagAlreadySelectd = selectedTag.find(
         (item) =>
@@ -285,10 +286,14 @@ class MultipleTags extends Component {
           previousCharacter.toUpperCase()
       );
       if (!isTagAlreadySelectd) {
-        this.addTag({
-          key: previousCharacter,
-          value: previousCharacter,
-        });
+        if (object) {
+          this.addTag({
+            [objectKeyIdentifier]: previousCharacter,
+            [objectValueIdentifier]: previousCharacter,
+          });
+        } else {
+          this.addTag(previousCharacter);
+        }
       }
       this.setState({ previousCharacter: '' });
     }
