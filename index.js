@@ -270,16 +270,18 @@ class MultipleTags extends Component {
 
   autoAddNewTag() {
     const { previousCharacter, selectedTag } = this.state;
-    const isTagAlreadySelectd = selectedTag.find(
-      (value) => value === previousCharacter
-    );
-    if (!isTagAlreadySelectd) {
-      this.addTag({
-        key: previousCharacter,
-        value: previousCharacter,
-      });
+    if (previousCharacter) {
+      const isTagAlreadySelectd = selectedTag.find(
+        (value) => value === previousCharacter
+      );
+      if (!isTagAlreadySelectd) {
+        this.addTag({
+          key: previousCharacter,
+          value: previousCharacter,
+        });
+      }
+      this.setState({ previousCharacter: '' });
     }
-    this.setState({ previousCharacter: '' });
   }
 
   removeTag(item) {
