@@ -252,7 +252,7 @@ class MultipleTags extends Component {
 
   addTag(item) {
     const { selectedTag, object, searchFilterTag } = this.state;
-    const { objectValueIdentifier, clearInputOnOptionSelected } = this.props;
+    const { objectValueIdentifier } = this.props;
 
     this.arr = searchFilterTag.filter((value) =>
       object
@@ -268,8 +268,8 @@ class MultipleTags extends Component {
     );
   }
 
-  autoAddNewTag() {
-    const { previousCharacter, selectedTag } = this.state;
+  autoAddNewTag(previousCharacter) {
+    const { selectedTag } = this.state;
     if (previousCharacter) {
       const isTagAlreadySelectd = selectedTag.find(
         (value) => value === previousCharacter
@@ -476,7 +476,7 @@ class MultipleTags extends Component {
                   underlineColorAndroid="transparent"
                   onChangeText={(value) => this.setTagsBasedOnQuery(value)}
                   placeholder="search..."
-                  onSubmitEditing={this.autoAddNewTag}
+                  onSubmitEditing={() => this.autoAddNewTag(previousCharacter)}
                 />
                 <Icon style={iconStyle} size={15} name="ios-search-outline" />
               </View>
