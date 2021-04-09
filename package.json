@@ -1,6 +1,6 @@
 {
   "name": "@adecrown/react-native-multiple-tags",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Multiple Select using Tags including default Selected Tags",
   "main": "index.js",
   "private": false,
