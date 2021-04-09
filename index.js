@@ -281,7 +281,8 @@ class MultipleTags extends Component {
     if (previousCharacter) {
       const isTagAlreadySelectd = selectedTag.find(
         (item) =>
-          this.getKeyFromObject(item) === previousCharacter.toUpperCase()
+          this.getKeyFromObject(item).toUpperCase() ===
+          previousCharacter.toUpperCase()
       );
       if (!isTagAlreadySelectd) {
         this.addTag({
