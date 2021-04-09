@@ -268,11 +268,20 @@ class MultipleTags extends Component {
     );
   }
 
+  getKeyFromObject(item) {
+    const { object } = this.state;
+    const { objectValueIdentifier } = this.props;
+    return object
+      ? this.ucwords(item[objectValueIdentifier])
+      : this.ucwords(item);
+  }
+
   autoAddNewTag(previousCharacter) {
     const { selectedTag } = this.state;
     if (previousCharacter) {
       const isTagAlreadySelectd = selectedTag.find(
-        (value) => value === previousCharacter
+        (item) =>
+          this.getKeyFromObject(item) === previousCharacter.toUpperCase()
       );
       if (!isTagAlreadySelectd) {
         this.addTag({
