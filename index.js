@@ -483,7 +483,7 @@ class MultipleTags extends Component {
         <View style={showTagsWrapper}>{this.showSelectedTags()}</View>
         {!show || (
           <View>
-            {!search || searchFilterTag.length === 0 || (
+            {!search || (
               <View style={tagSearchWrapper}>
                 <TextInput
                   style={textInputStyle}
