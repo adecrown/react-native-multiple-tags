@@ -16,7 +16,6 @@ const { width } = Dimensions.get('window');
 const styles = {
   showTagsWrapper: {
     minHeight: 40,
-    maxHeight: 40,
     alignItems: 'center',
     flexDirection: 'row',
   },
@@ -384,6 +383,7 @@ class MultipleTags extends Component {
       defaultInstructionClosed,
       defaultInstructionOpen,
       objectKeyIdentifier,
+      defaultInstructionStyle,
     } = this.props;
     const { selectedTag, show, object } = this.state;
 
@@ -401,7 +401,7 @@ class MultipleTags extends Component {
 
     return (
       <View style={showAvailTagsViewNotFound}>
-        <Text style={notFoundStyle}>
+        <Text style={[notFoundStyle, defaultInstructionStyle]}>
           {show ? defaultInstructionOpen : defaultInstructionClosed}
         </Text>
       </View>
@@ -416,12 +416,8 @@ class MultipleTags extends Component {
 
   renderItem(data) {
     const { item, index } = data;
-    const {
-      sizeIconTag,
-      showIconAdd,
-      iconAddName,
-      tagActiveStyle,
-    } = this.props;
+    const { sizeIconTag, showIconAdd, iconAddName, tagActiveStyle } =
+      this.props;
     const { object } = this.state;
     const { objectValueIdentifier } = this.props;
 
@@ -515,6 +511,7 @@ MultipleTags.propTypes = {
   title: PropTypes.string,
   defaultInstructionClosed: PropTypes.string,
   defaultInstructionOpen: PropTypes.string,
+  defaultInstructionStyle: PropTypes.object,
   defaultTotalRenderedTags: PropTypes.number,
   searchHitResponse: PropTypes.string,
   sizeIconTag: PropTypes.number,
@@ -534,6 +531,7 @@ MultipleTags.defaultProps = {
   searchHitResponse: 'No match was found',
   defaultInstructionClosed: 'Press the down arrow button to pick a tag',
   defaultInstructionOpen: 'Pick a tag with the + icon',
+  defaultInstructionStyle: {},
   sizeIconTag: 15,
   showIconAdd: true,
   iconAddName: 'ios-add-circle-outline',

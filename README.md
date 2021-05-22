@@ -149,6 +149,7 @@ export default WelcomeComponent;
 | labelActiveTag           | No       | object   | Custom style for active tag label.                                                                                                                                                                    |
 | tagActiveStyle           | No       | object   | Custom style for active tag.                                                                                                                                                                          |
 | visibleOnOpen            | No       | boolean  |
+| defaultInstructionStyle  | No       | object   | custom style for default instructions                                                                                                                                                                 |
 
 You can add a tag that is not in the list by hiting enter.
 
