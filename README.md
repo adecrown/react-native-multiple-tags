@@ -126,6 +126,8 @@ class WelcomeComponent extends Component {
 export default WelcomeComponent;
 ```
 
+> You can add a custom tag by typing it and then pressing enter
+
 ## Props
 
 ---
@@ -151,7 +153,7 @@ export default WelcomeComponent;
 | visibleOnOpen            | No       | boolean  |
 | defaultInstructionStyle  | No       | object   | custom style for default instructions                                                                                                                                                                 |
 
-You can add a tag that is not in the list by hiting enter.
+> You can add a tag that is not in the list by hiting enter.
 
 # Todo
 
