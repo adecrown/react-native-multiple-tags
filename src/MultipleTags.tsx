@@ -170,6 +170,7 @@ const MultipleTags = (props: MultipleTagProps) => {
     showIconAdd = true,
     iconAddName = 'ios-add-circle-outline',
     defaultTotalRenderedTags = 30,
+    allowCustomTags = true,
   } = props;
 
   const { width } = useWindowDimensions();
@@ -296,7 +297,6 @@ const MultipleTags = (props: MultipleTagProps) => {
   };
 
   const autoAddNewTag = (previousCharacter: string) => {
-    const { allowCustomTags } = props;
     if (previousCharacter && allowCustomTags) {
       const isTagAlreadySelectd = selectedTag.find(
         (item) =>
