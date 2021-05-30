@@ -18,7 +18,7 @@ npm i -S @adecrown/react-native-multiple-tags
 # Usage
 
 ```js
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import MultipleTags from 'react-native-multiple-tags';
 
@@ -79,49 +79,35 @@ const objectTags = [
   },
 ];
 
-class WelcomeComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      content: [],
-      contentx: [],
-    };
-  }
+const WelcomeComponent = () => {
+  const [content, setContent] = useState([]);
+  const [contentx, setContentx] = useState([]);
 
-  render() {
-    return (
-      <View>
-        <MultipleTags
-          tags={objectTags}
-          search
-          onChangeItem={(content) => {
-            this.setState({ content });
-          }}
-          title="Fruits"
-        />
-        {(() =>
-          this.state.content.map((item) => (
-            <Text key={item.key}>
-              {' '}
-              {item.key}: {item.value}{' '}
-            </Text>
-          )))()}
-        <MultipleTags
-          tags={tags}
-          search
-          onChangeItem={(contentx) => {
-            this.setState({ contentx });
-          }}
-          title="Fruits"
-        />
-        {(() =>
-          this.state.contentx.map((item) => (
-            <Text key={item}> {item} </Text>
-          )))()}
-      </View>
-    );
-  }
-}
+  return (
+    <View>
+      <MultipleTags
+        tags={objectTags}
+        search
+        onChangeItem={setContent}
+        title="Fruits"
+      />
+      {(() =>
+        content.map((item) => (
+          <Text key={item.key}>
+            {' '}
+            {item.key}: {item.value}{' '}
+          </Text>
+        )))()}
+      <MultipleTags
+        tags={tags}
+        search
+        onChangeItem={setContentx}
+        title="Fruits"
+      />
+      {(() => contentx.map((item) => <Text key={item}> {item} </Text>))()}
+    </View>
+  );
+};
 
 export default WelcomeComponent;
 ```
@@ -152,6 +138,9 @@ export default WelcomeComponent;
 | tagActiveStyle           | No       | object   | Custom style for active tag.                                                                                                                                                                          |
 | visibleOnOpen            | No       | boolean  |
 | defaultInstructionStyle  | No       | object   | custom style for default instructions                                                                                                                                                                 |
+| placeholder              | No       | string   | input placeholder                                                                                                                                                                                     |
+| inputStyle               | No       | object   | custom style for input field.                                                                                                                                                                         |
+| allowCustomTags          | No       | boolean  | bool to allow users to input new tags not in the originial tags array. Defaults to true                                                                                                               |
 
 > You can add a tag that is not in the list by hiting enter.
 
