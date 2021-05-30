@@ -30,9 +30,6 @@
     "url": "http://adecrown.com"
   },
   "license": "MIT",
-  "dependencies": {
-    "prop-types": "^15.5.10"
-  },
   "devDependencies": {
     "eslint": "^7.23.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -48,6 +45,7 @@
   },
   "peerDependencies": {
     "react-native-vector-icons": "^8.1.0",
+    "react": ">=0.14.8",
     "react-native": ">=0.50.1"
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import * as React from 'react';
 import {
   View,
   TextInput,
@@ -173,20 +173,20 @@ const MultipleTags = (props: MultipleTagProps) => {
   } = props;
 
   const { width } = useWindowDimensions();
-  const [tags, setTags] = useState<TagsType>([]);
-  const [searchFilterTags, setSearchFilterTags] = useState<TagsType>([]);
-  const [selectedTag, setSelectedTag] = useState<TagsType>([]);
-  const [previousCharacter, setPreviousCharacter] = useState('');
-  const [show, setShow] = useState(false);
-  const [totalViewWidth, setTotalViewWidth] = useState(0);
-  const [isObject, setIsObject] = useState(false);
-  const showAvailableTagsRef = useRef<FlatList<any>>(null);
+  const [tags, setTags] = React.useState<TagsType>([]);
+  const [searchFilterTags, setSearchFilterTags] = React.useState<TagsType>([]);
+  const [selectedTag, setSelectedTag] = React.useState<TagsType>([]);
+  const [previousCharacter, setPreviousCharacter] = React.useState('');
+  const [show, setShow] = React.useState(false);
+  const [totalViewWidth, setTotalViewWidth] = React.useState(0);
+  const [isObject, setIsObject] = React.useState(false);
+  const showAvailableTagsRef = React.useRef<FlatList<any>>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setAvailableTags();
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const { onChangeItem } = props;
     if (onChangeItem) onChangeItem(selectedTag);
   }, [selectedTag]);
